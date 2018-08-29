@@ -108,6 +108,23 @@ int main(int argc, char *argv[])
   memset(to, 'y', 1000);
 
   //duffs version
+  rc = duffs_device(from, to , 1000);
+  check(rc == 1000, "Duff's device failed %d", rc);
+  check(valid_copy(to, 1000, 'x'), "Duff's device failed copy.");
+
+  //reset
+  memset(to, 'y', 1000);
+
+  //my version
+  rc = zeds_device(from, to, 1000);
+  check(rc = 1000, "Zed's device failed %d", rc);
+  check(valid_copy(to, 1000, 'x'),"Zed's device failed copy.");
+
+  return 0;
+error:
+  return 1;
+
+
 
 
 }
