@@ -1,5 +1,5 @@
 /* WARNING:  This code is fresh and potentially isn't correct yet. */
-
+#define NDEBUG
 
 #include <stdio.h>
 #include <glob.h>
@@ -40,7 +40,7 @@ int scan_file(const char *filename, int count, char **words, int condition){
       {
         if(res[j] >0) found++;
       }
-   if((found == (count-1) && condition == AND_CONDITION) || (found && condition == OR_CONDITION)){
+   if((found == (count-1) && condition == AND_CONDITION) || (found && (condition == OR_CONDITION))){
        printf("WORDS FOUND IN: %s",filename);
        free(line);
        free(res);
@@ -110,7 +110,7 @@ error: // fallthrough
 
 
 int main (int argc, char *argv[]){
-  char **words;
+  char **words = NULL;
   int compare_oper;
   glob_t files_found;
 

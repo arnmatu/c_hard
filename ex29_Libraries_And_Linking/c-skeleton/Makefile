@@ -21,6 +21,7 @@ $(TARGET): CLFLAGS += -fPIC
 $(TARGET): build $(OBJECTS)
 	ar rcs $@ $(OBJECTS)
 	ranlib $@
+
 $(SO_TARGET): $(TARGET) $(OBJECTS)
 	$(CC) -shared -o $@ $(OBJECTS)
 

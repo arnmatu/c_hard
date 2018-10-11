@@ -3,7 +3,7 @@
 #define __minunit_h
 
 #include <stdio.h>
-#include "../src/dbg.h"
+#include <lcthw/dbg.h>
 #include <stdlib.h>
 
 #define mu_suite_start() char *message = NULL
