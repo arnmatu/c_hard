@@ -7,6 +7,8 @@ OBJECTS=$(patsubst %.c,%.o,$(SOURCES))
 
 TEST_SRC=$(wildcard tests/*_tests.c)
 TESTS=$(patsubst %.c,%,$(TEST_SRC))
+TEST_OBJ=$(patsubst %.c,%.o,$(TEST_SRC))
+
 
 TARGET=build/libYOUR_LIBRARY.a
 SO_TARGET=$(patsubst %.a,%.so,$(TARGET))
@@ -31,8 +33,11 @@ build:
 
 # The Unit Tests
 .PHONY: tests
-tests: CFLAGS += $(TARGET)
-tests: $(TESTS)
+#OSX use 2 following lines comment other 2 bellow
+#tests: CFLAGS += $(TARGET)
+#tests: $(TESTS)
+tests: $(TEST_OBJ)
+	-cc $(CFLAGS) $(TEST_SRC) $(LIBS) -o $(TESTS)
 	sh ./tests/runtests.sh
 
 # The Cleaner
