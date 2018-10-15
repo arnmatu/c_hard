@@ -121,3 +121,13 @@ void *List_remove(List * list, ListNode * node)
 error:
   return result;
 }
+
+
+void List_printer (List *list, char *msg)
+{
+  printf("---%s----- \n",msg);
+  LIST_FOREACH(list,first,next,cur){
+    printf("-- %s ", cur->value);
+  }
+  printf("\n");
+}

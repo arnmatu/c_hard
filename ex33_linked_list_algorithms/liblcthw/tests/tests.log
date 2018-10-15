@@ -1,0 +1,3 @@
+DEBUG tests/list_algos_tests.c:92: ----- RUNNING: ./tests/list_algos_tests
+DEBUG tests/list_algos_tests.c:87: 
+----- test_merge_sort
