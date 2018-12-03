@@ -20,7 +20,7 @@ typedef struct Variant Variant;
 void Variant_print(Variant *var){
     switch (var->type){
         case TYPE_INT:
-            print("INT: %d\n", var->data.as_integer);
+            printf("INT: %d\n", var->data.as_integer);
             break;
         case TYPE_FLOAT:
             printf("FLOAT %f\n", var->data.as_float);
